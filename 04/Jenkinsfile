@@ -1,15 +1,20 @@
 pipeline {
     agent any
     parameters {
-        string(name: 'PERSONA', defaultValue: 'Miguel', description: 'A quien deseas saludar?')
-        booleanParam(name: 'IS_VALID', defaultValue: true, description: 'Marque con ticket para TRUE')
-        choice(name: 'Eleccion', choices: ['Java', 'Python', 'JavaScript'], description: 'Elegir una opción')
+        string(name: 'PERSONA', defaultValue: 'Miguel', description: 'A quien debo saludar?')
 
+        booleanParam(name: 'IS_VALID', defaultValue: true, description: 'Marque con un ticket y se considera TRUE')
+
+        choice(name: 'Eleccion', choices: ['Java', 'Python', 'JavaScript'], description: 'Elegir una opción')
     }
     stages {
-        stage('Uso de Parametros con Pipeline') {
+        stage('Clase de Parametros') {
             steps {
-                echo
+                echo "Hola, como estas ${params.PERSONA}"
+
+                echo "IS_VALID: ${params.IS_VALID}"
+
+                echo "Eleccion: ${params.Eleccion}"
             }
         }
     }
