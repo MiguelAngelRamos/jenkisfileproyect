@@ -1,0 +1,16 @@
+pipeline {
+    agent any
+    parameters {
+        string(name: 'PERSONA', defaultValue: 'Miguel', description: 'A quien deseas saludar?')
+        booleanParam(name: 'IS_VALID', defaultValue: true, description: 'Marque con ticket para TRUE')
+        choice(name: 'Eleccion', choices: ['Java', 'Python', 'JavaScript'], description: 'Elegir una opción')
+
+    }
+    stages {
+        stage('Uso de Parametros con Pipeline') {
+            steps {
+                echo
+            }
+        }
+    }
+}
